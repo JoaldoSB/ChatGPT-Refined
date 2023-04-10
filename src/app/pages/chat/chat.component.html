@@ -1,0 +1,19 @@
+<section class="container-fluid bgScreen">
+  <div class="container-fluid">
+    <div class="chat-component">
+      <input class="input" [(ngModel)]="message" placeholder="Digite sua mensagem">
+        <button class="button" (click)="sendMessage()">Enviar</button>
+        <div class="loading-indicator" *ngIf="isLoading">
+          <i class="fas fa-spinner fa-spin"></i>
+          <p>Sua solicitação está em processamento...</p>
+        </div>
+      </div>
+    <div class="chat-box">
+      <div class="chat-box-response" *ngIf="response">{{ response }}</div>
+    </div>
+    <div class="chat-component-buttons">
+        <button class="button-reset" (click)="sendMessage()">refazer</button>
+        <button class="button-salve">salvar</button>
+    </div>
+  </div>
+</section>
