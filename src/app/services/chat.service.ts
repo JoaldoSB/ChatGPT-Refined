@@ -7,14 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class ChatService {
 
-  private apiUrl = 'https://api.openai.com/v1/engines/text-davinci-003/completions';
-  private apiKey = '';//falta colocar a chave da API ChatGPT
+  private apiUrl = '';//chve API
+  private apiKey = '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';
 
   private headers = new HttpHeaders({
     'Authorization': `Bearer ${this.apiKey}`
   });
 
-  private maxTokens = 2000;
+  private maxTokens = 300;
   private temperature = 0.7;
 
   constructor(private http: HttpClient) { }
@@ -25,6 +25,7 @@ export class ChatService {
       max_tokens: this.maxTokens,
       temperature: this.temperature
     };
-    return this.http.post(`${this.apiUrl}`, data, { headers: this.headers });
+    return this.http.post<any>(`${this.apiUrl}`, data, { headers: this.headers });
   }
 }
+
